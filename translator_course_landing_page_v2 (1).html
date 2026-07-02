@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>კურსი — პროფესიული მთარგმნელის საფუძვლები</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: #f4f6fb;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #10203f, #1f4b99);
+      color: white;
+      border-radius: 28px;
+      padding: 56px 34px;
+      box-shadow: 0 18px 50px rgba(16, 32, 63, 0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      right: -80px;
+      top: -80px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.12;
+      max-width: 760px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 700px;
+      color: #e9eefc;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background: #ffcc33;
+      color: #172033;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #ffd957;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+
+    .duration-strip {
+      margin: 18px 0 8px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .duration-card {
+      background: white;
+      border-radius: 18px;
+      padding: 18px 22px;
+      box-shadow: 0 10px 28px rgba(20, 35, 70, 0.08);
+      border: 1px solid #e8edf7;
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+      color: #10203f;
+    }
+
+    .duration-card span {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .duration-card strong {
+      font-size: 22px;
+      color: #1f4b99;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 28px 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 12px 35px rgba(20, 35, 70, 0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #10203f;
+      font-size: 21px;
+    }
+
+    .card p, .card li {
+      color: #2f3a4f;
+      font-size: 16px;
+    }
+
+    .section {
+      margin-top: 28px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      margin-bottom: 14px;
+      color: #10203f;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .program {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .lesson {
+      border-left: 5px solid #1f4b99;
+    }
+
+    .form-box {
+      background: #10203f;
+      color: white;
+      border-radius: 26px;
+      padding: 30px;
+      box-shadow: 0 18px 45px rgba(16, 32, 63, 0.20);
+    }
+
+    .form-box h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .form-box p {
+      color: #dce5ff;
+      margin-bottom: 18px;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 13px;
+      border: 1px solid #d7ddec;
+      font-size: 16px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #dce5ff;
+      margin-top: 10px;
+    }
+
+    .floating-call {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: #19b55b;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 12px 35px rgba(25,181,91,0.35);
+      z-index: 10;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 10px;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .grid, .two-col, .program {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 42px 24px;
+      }
+
+      .page {
+        padding: 14px;
+      }
+
+      .floating-call {
+        left: 14px;
+        right: 14px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <h1>კურსი — პროფესიული მთარგმნელის საფუძვლები</h1>
+      <p>
+        კურსი მათთვის, ვინც უკვე ფლობს უცხო ენას და სურს გაიგოს,
+        როგორ მუშაობს მთარგმნელი რეალურ პროფესიულ გარემოში.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#register">რეგისტრაცია</a>
+        <a class="btn btn-secondary" href="tel:+995555050478">დარეკვა</a>
+      </div>
+    </section>
+
+    <section class="duration-strip">
+      <div class="duration-card">
+        <span>კურსის ხანგრძლივობა</span>
+        <strong>2 კვირა</strong>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>ხანგრძლივობა</h3>
+        <p>2 კვირა, კვირაში 3 სესია. თითო სესია გრძელდება 1 საათი და 30 წუთი.</p>
+      </div>
+      <div class="card">
+        <h3>ვისთვისაა?</h3>
+        <p>დამწყები მთარგმნელებისთვის, სტუდენტებისთვის და მათთვის, ვისაც სურს ამ სფეროში მუშაობის დაწყება.</p>
+      </div>
+      <div class="card">
+        <h3>რას არ მოიცავს?</h3>
+        <p>კურსი არ ასწავლის უცხო ენას. აქ ვსწავლობთ სამუშაო პროცესს, პროფესიულ სტანდარტებსა და რეალურ პრაქტიკას.</p>
+      </div>
+    </section>
+
+    <section class="section two-col">
+      <div class="card">
+        <h2 class="section-title">რას ისწავლით?</h2>
+        <ul>
+          <li>რა განსხვავებაა აკადემიურ და კომერციულ თარგმანს შორის</li>
+          <li>როგორ იწყება რეალური სამუშაო პროცესი</li>
+          <li>როგორ იგეგმება დრო და სამუშაო მოცულობა</li>
+          <li>როგორ იქმნება გლოსარიუმი და ტერმინოლოგიური ბაზა</li>
+          <li>როგორ ხდება ხარისხის კონტროლი და თვითრედაქტირება</li>
+          <li>როგორ უნდა იურთიერთოთ დამკვეთთან პროფესიონალურად</li>
+          <li>რა არის CAT Tools, Translation Memory და Term Base</li>
+        </ul>
+      </div>
+
+      <div class="form-box" id="register">
+        <h2>მოითხოვე ზარი</h2>
+        <p>დატოვე მონაცემები და დაგიკავშირდებით კურსის დეტალებზე.</p>
+
+        <!-- ეს ფორმა საცდელია. რეალურად გასაგზავნად დააკავშირეთ Google Form-თან, Formspree-სთან ან თქვენს საიტთან. -->
+        <form onsubmit="sendToWhatsApp(event)">
+          <input id="name" type="text" placeholder="სახელი და გვარი" required />
+          <input id="phone" type="tel" placeholder="ტელეფონის ნომერი" required />
+          <select id="language" required>
+            <option value="">რომელ ენაზე მუშაობთ?</option>
+            <option>ინგლისური</option>
+            <option>გერმანული</option>
+            <option>ფრანგული</option>
+            <option>რუსული</option>
+            <option>თურქული</option>
+            <option>სხვა</option>
+          </select>
+          <textarea id="message" placeholder="დამატებითი კომენტარი"></textarea>
+          <button class="btn btn-primary" type="submit">რეგისტრაცია</button>
+        </form>
+
+        <div class="note">
+          ღილაკზე დაჭერისას გაიხსნება WhatsApp შეტყობინება თქვენი მონაცემებით.
+        </div>
+      </div>
+    </section>
+<section class="section two-col">
+      <div class="card">
+        <h2 class="section-title">კურსის შედეგი</h2>
+        <p>
+          კურსის დასრულების შემდეგ მონაწილე უკეთ გაიგებს, როგორ უნდა იმუშაოს პროფესიულ გარემოში,
+          როგორ მართოს შეკვეთა, როგორ დაიცვას ვადა, როგორ უზრუნველყოს ხარისხი და როგორ შექმნას
+          სანდო პროფესიული იმიჯი.
+        </p>
+      </div>
+      <div class="card">
+        <h2 class="section-title">დაიწყე სწორად</h2>
+        <p>
+          თუ უცხო ენა უკვე იცი, შემდეგი ნაბიჯი პროფესიული მუშაობის წესების სწავლაა.
+          ეს კურსი სწორედ ამ გადასვლაში დაგეხმარება.
+        </p>
+        <br />
+        <a class="btn btn-primary" href="#register">რეგისტრაცია</a>
+      </div>
+    </section>
+
+    <div class="footer">
+      © კურსი — პროფესიული მთარგმნელის საფუძვლები
+    </div>
+  </div>
+
+  <a class="floating-call" href="tel:+995555050478">დარეკვა / კონსულტაცია</a>
+
+  <script>
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const language = document.getElementById("language").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const text =
+        "გამარჯობა, მსურს კურსზე რეგისტრაცია:%0A%0A" +
+        "სახელი: " + encodeURIComponent(name) + "%0A" +
+        "ტელეფონი: " + encodeURIComponent(phone) + "%0A" +
+        "ენა: " + encodeURIComponent(language) + "%0A" +
+        "კომენტარი: " + encodeURIComponent(message || "არ არის");
+
+      // აქ შეცვალეთ ნომერი თქვენი WhatsApp ნომრით. ფორმატი: ქვეყნის კოდი + ნომერი, პლუსის გარეშე.
+      window.open("https://wa.me/995555050478?text=" + text, "_blank");
+    }
+  </script>
+</body>
+</html>
